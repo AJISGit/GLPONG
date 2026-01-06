@@ -24,6 +24,9 @@
     <ClCompile Include="include\glm\detail\glm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\drawablerect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\glad\glad.h">
@@ -906,6 +909,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\glm\gtx\wrap.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\glpong\drawablerect.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
