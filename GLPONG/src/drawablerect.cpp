@@ -112,3 +112,13 @@ void glpong::drawablerect::draw() {
 void glpong::drawablerect::setProjectionMatrix(const glm::mat4& projectionMatrix) {
 	this->projectionMatrix = projectionMatrix;
 }
+
+
+float glpong::drawablerect::getWidth() {
+	return width;
+}
+
+
+float glpong::drawablerect::getHeight() {
+	return height;
+}

@@ -44,7 +44,6 @@ namespace glpong {
 
 
 		glm::mat4 projectionMatrix;
-		GLFWwindow* window = nullptr;
 		float vertices[8] = {};
 
 		unsigned int indices[6] = {
@@ -61,6 +60,11 @@ namespace glpong {
 		GLuint shader;
 
 		// Just so I remember, call generateVertices(), then generateShaders(), then generateBuffers().
+
+		protected:
+
+		GLFWwindow* window = nullptr;
+
 		void generateVertices();
 		void generateBuffers();
 		void generateShaders();
@@ -75,6 +79,9 @@ namespace glpong {
 		void draw();
 
 		void setProjectionMatrix(const glm::mat4& projectionMatrix);
+
+		float getWidth();
+		float getHeight();
 
 
 	};
