@@ -1,6 +1,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <glpong/drawablerect.hpp>
+#include <glpong/player.hpp>
 
 #ifdef _DEBUG
 #include <iostream>
@@ -37,18 +37,26 @@ int main() {
 	glViewport(0, 0, initialWindowWidth, initialWindowHeight);
 
 	glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(initialWindowWidth), static_cast<float>(initialWindowHeight), 0.0f, 0.1f, 10.0f);
-	glpong::drawablerect plr(15, 100, window, projectionMatrix);
+	glpong::player plr(15, 100, window, projectionMatrix);
 	plr.position.x = 0.0f;
 	plr.position.y = 0.0f;
 
 	//// Render Loop ////
+
+	float lastFrameTime = static_cast<float>(glfwGetTime());
+
 	while (!glfwWindowShouldClose(window)) {
 
 		glfwPollEvents();
 
+		float currentFrameTime = static_cast<float>(glfwGetTime());
+		float deltaTime = currentFrameTime - lastFrameTime;
+		lastFrameTime = currentFrameTime;
+
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
+		plr.update(deltaTime);
 		plr.draw();
 
 		glfwSwapBuffers(window);
