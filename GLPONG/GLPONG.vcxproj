@@ -428,12 +428,14 @@
     <ClInclude Include="include\glm\vec4.hpp" />
     <ClInclude Include="include\glm\vector_relational.hpp" />
     <ClInclude Include="include\glpong\drawablerect.hpp" />
+    <ClInclude Include="include\glpong\enemy.hpp" />
     <ClInclude Include="include\glpong\player.hpp" />
     <ClInclude Include="include\KHR\khrplatform.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="include\glm\detail\glm.cpp" />
     <ClCompile Include="src\drawablerect.cpp" />
+    <ClCompile Include="src\enemy.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\player.cpp" />

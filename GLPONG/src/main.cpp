@@ -1,6 +1,6 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <glpong/player.hpp>
+#include <glpong/enemy.hpp>
 
 #ifdef _DEBUG
 #include <iostream>
@@ -38,8 +38,7 @@ int main() {
 
 	glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(initialWindowWidth), static_cast<float>(initialWindowHeight), 0.0f, 0.1f, 10.0f);
 	glpong::player plr(15, 100, window, projectionMatrix);
-	plr.position.x = 0.0f;
-	plr.position.y = 0.0f;
+	glpong::enemy enemy(15, 100, window, projectionMatrix);
 
 	//// Render Loop ////
 
@@ -58,6 +57,8 @@ int main() {
 
 		plr.update(deltaTime);
 		plr.draw();
+		enemy.update(deltaTime);
+		enemy.draw();
 
 		glfwSwapBuffers(window);
 

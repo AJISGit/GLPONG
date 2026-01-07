@@ -12,7 +12,7 @@ namespace glpong {
 
 		player(float width, float height, GLFWwindow* window, const glm::mat4& projectionMatrix);
 
-		void update(float deltaTime);
+		virtual void update(float deltaTime);
 
 	};
 
