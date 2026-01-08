@@ -40,7 +40,7 @@ int main() {
 	glm::mat4 projectionMatrix = glm::ortho(0.0f, static_cast<float>(initialWindowWidth), static_cast<float>(initialWindowHeight), 0.0f, 0.1f, 10.0f);
 	glpong::player plr(15, 100, window, projectionMatrix);
 	glpong::enemy enemy(15, 100, window, projectionMatrix);
-	glpong::ball ball(15, 15, window, projectionMatrix);
+	glpong::ball ball(15, 15, window, projectionMatrix, plr, enemy);
 
 	//// Render Loop ////
 
@@ -48,20 +48,26 @@ int main() {
 
 	while (!glfwWindowShouldClose(window)) {
 
-		glfwPollEvents();
-
 		float currentFrameTime = static_cast<float>(glfwGetTime());
 		float deltaTime = currentFrameTime - lastFrameTime;
 		lastFrameTime = currentFrameTime;
+
+		glfwPollEvents();
 
 		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 
 		plr.update(deltaTime);
 		plr.draw();
+
 		ball.update(deltaTime);
+
 		enemy.update(deltaTime);
+		enemy.position.y = ball.position.y;
 		enemy.draw();
+
+		ball.doCollisionsOnPlr();
+		ball.doCollisionsOnEnemy();
 		ball.draw();
 
 		glfwSwapBuffers(window);
